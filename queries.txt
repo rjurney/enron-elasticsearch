@@ -1,0 +1,9 @@
+curl -XGET 'http://localhost:9200/enron/email/_search?pretty=true' -d '{
+    "query": {
+        "term" : { "from.address": "tim.belden", "from.name": "Tim Belden" }
+    }
+}'
+
+curl -XGET 'http://localhost:9200/enron/email/_search?pretty=true&q=from.name:"Tim%20Belden"'
+
+curl -XGET 'http://localhost:9200/enron/email/_search?pretty=true&size=1&q=from.address:"tim.belden%40enron.com"'
